@@ -30,7 +30,7 @@ Explanation: `static_transform_publisher x y z yaw pitch roll parent_frame child
 
 Details of writing a tf2 broadcaster display in the ROS node broadcaster_node. Look at `broadcaster.launch` for details. Use `rostopic pub /broadcaster_node/reset std_msgs/Bool "data: true"` command to trigger the broadcaster to broadcast. Note that to view the changes, you may want to have the static tf there.  
 
-![before](images/before_broadcast.png)! [after](images/broadcast.png)
+![before](images/before_broadcast.png) ![after](images/broadcast.png)
 
 ```bash
 # Terminal 1
