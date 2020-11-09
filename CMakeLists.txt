@@ -24,6 +24,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+# Broadcaster Executable
 add_executable(broadcaster_node
   src/broadcaster_node.cpp
   src/broadcaster.cpp
@@ -36,4 +37,21 @@ add_executable(broadcaster_node_debug
   src/broadcaster.cpp
 )
 
+target_compile_definitions(broadcaster_node_debug PRIVATE DEBUG_)
 target_link_libraries(broadcaster_node_debug ${catkin_LIBRARIES})
+
+# Listener Executable
+add_executable(listener_node
+  src/listener_node.cpp
+  src/listener.cpp
+)
+
+target_link_libraries(listener_node ${catkin_LIBRARIES})
+
+add_executable(listener_node_debug
+  src/listener_node.cpp
+  src/listener.cpp
+)
+
+target_compile_definitions(listener_node_debug PRIVATE DEBUG_)
+target_link_libraries(listener_node_debug ${catkin_LIBRARIES})
