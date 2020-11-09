@@ -6,7 +6,7 @@ int main(int argc, char ** argv)
     // Initialize ROS node
     ros::init(argc, argv, "broadcaster_node");
 
-    // Instantiate broadcaster class
+    // Instantiate broadcaster
     broadcaster::broadcaster node;
 
     // Run node
