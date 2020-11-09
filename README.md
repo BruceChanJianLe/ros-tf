@@ -5,6 +5,7 @@ This repository is a simple demonstration of tf(2) usage in ROS 1.
 ## Content
 
 - [Publish Statis Transform](#Publish-Statis-Transform)
+- [TF2 Broadcaster](#TF2-Broadcaster)
 
 ## Publish Statis Transform
 
@@ -26,3 +27,4 @@ Explanation: `static_transform_publisher x y z yaw pitch roll parent_frame child
 
 ## TF2 Broadcaster
 
+Details of writing a tf2 broadcaster display in the ROS node broadcaster_node. Look at `broadcaster.launch` for details. Use `rostopic pub /broadcaster_node/reset std_msgs/Bool "data: true"` command to trigger the broadcaster to broadcast. Note that to view the changes, you may want to have the static tf there.  
