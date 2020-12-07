@@ -7,6 +7,7 @@ This repository is a simple demonstration of tf(2) usage in ROS 1.
 - [Publish Statis Transform](#Publish-Statis-Transform)
 - [TF2 Broadcaster](#TF2-Broadcaster)
 - [TF2 Listener](#TF2-Listener)
+- [Errors](#Error)
 
 ## Publish Statis Transform
 
@@ -52,4 +53,16 @@ rostopic pub /listener_node/display_transform std_msgs/Bool "data: true" -1
 [ INFO] [1604912229.161304400]: listener_node: position x, y, z (1, 0, 0) x, y, z, w (0, 0, 0, 1)
 ## After broadcater node change the tf
 [ INFO] [1604912270.161046625]: listener_node: position x, y, z (1, 1, 0) x, y, z, w (0, 0, 0, 1)
+```
+
+## Error
+
+There are some funny errors that has been encountered before while using TF1. Below are the recommended methods if you would like to listen to a TF (works for simulation and real world scenario).  
+```cpp
+tf::StampedTransform transform;
+try{
+    now = ros::Time(0); // This is very important
+    listener.waitForTransform(base_frame, target_frame, ros::Time(0), ros::Duration(3.0));
+    listener.lookupTransform(base_frame, target_frame, ros::Time(0), transform);
+}
 ```
