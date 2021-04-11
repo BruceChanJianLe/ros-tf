@@ -7,6 +7,7 @@ This repository is a simple demonstration of tf(2) usage in ROS 1.
 - [Publish Statis Transform](#Publish-Statis-Transform)
 - [TF2 Broadcaster](#TF2-Broadcaster)
 - [TF2 Listener](#TF2-Listener)
+- [TF Prefix](#TF-Prefix)
 - [Errors](#Error)
 
 ## Publish Statis Transform
@@ -54,6 +55,21 @@ rostopic pub /listener_node/display_transform std_msgs/Bool "data: true" -1
 ## After broadcater node change the tf
 [ INFO] [1604912270.161046625]: listener_node: position x, y, z (1, 1, 0) x, y, z, w (0, 0, 0, 1)
 ```
+
+## TF Prefix
+
+Unfortunately, you will have to write code to enable prefix for tf frames. An good example will be the `robot_state_publisher` node. Only supported until `melodic`, if you run on `noetic` it will break.
+
+```xml
+<?xml version="1.0"?>
+<launch>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+        <param name="tf_prefix" type="string" value="$(arg robot_namespace)"/>
+  </node>
+</launch>
+```
+
+For tf2 you will need to write a node to do so. Please refer to the link: https://bitbucket.org/osrf/ariac/src/master/osrf_gear/src/tf2_relay.cpp  
 
 ## Error
 
