@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <arg name="prefix" default=""/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="1 0 0 0 0 0 $(arg prefix)/map $(arg prefix)/odom" />
+
+</launch>
