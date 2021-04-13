@@ -1,4 +1,5 @@
 #include "ros-tf/broadcaster.hpp"
+#include <tf/transform_listener.h>
 
 namespace broadcaster
 {
@@ -10,6 +11,11 @@ namespace broadcaster
         private_nh_.param<std::string>("fixed_frame", fixed_frame_, "map");
         private_nh_.param<std::string>("odom_frame", odom_frame_, "odom");
         private_nh_.param("rate", rate_, 5);
+
+        // Obtain tf_prefix; only supported in tf1
+        auto tf_prefix = tf::getPrefixParam(private_nh_);
+        fixed_frame_ = tf::resolve(tf_prefix, fixed_frame_);
+        odom_frame_ = tf::resolve(tf_prefix, odom_frame_);
     }
 
 
