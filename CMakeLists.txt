@@ -10,12 +10,13 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf2_ros
+  tf
 )
 
 catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES ros-tf
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf2_ros
+#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf2_ros tf
 #  DEPENDS system_lib
 )
 
