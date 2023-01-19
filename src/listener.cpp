@@ -46,7 +46,7 @@ namespace listener
                 {
                     ROS_WARN_STREAM("listener_node: " << e.what());
                     ROS_WARN_STREAM("listener_node: Failed to read odom_frame tf");
-                    return;
+                    continue;
                 }
 
                 ROS_INFO_STREAM(
