@@ -86,11 +86,11 @@ try{
 
 There are some differences between tf2 and tf. Here I will list down one function equivalent function in tf2 to tf.
 TF | TF2 
-
-## Transfrom Between Frames
-
-https://answers.ros.org/question/273205/transfer-a-pointxyz-between-frames/
 --- | ---
 waitForTransform() | canTransform()
 
 For more information please visit this [link](https://answers.ros.org/question/312648/could-not-find-waitfortransform-function-in-tf2-package-of-ros2/)
+
+## Transfrom Between Frames
+
+https://answers.ros.org/question/273205/transfer-a-pointxyz-between-frames/
